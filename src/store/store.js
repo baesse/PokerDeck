@@ -8,9 +8,6 @@ const sagaMiddleware = createSagaMiddleware();
 const middlewares = [sagaMiddleware];
 export const store = createStore(
   Reducers(),
-  compose(
-    applyMiddleware(...middlewares), reduxDevTools
-    ,
-  ),
+  compose(applyMiddleware(...middlewares)),
 );
 sagaMiddleware.run(Sagas);
