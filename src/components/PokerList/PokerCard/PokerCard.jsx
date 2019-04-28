@@ -1,15 +1,24 @@
-import React from "react";
-import { PokerCard } from "../pokerListStyle";
+import React, { useState } from "react";
+import { PokerCard, PokerCardHeaderStyle, PokemonName } from "../pokerListStyle";
+import { PokerStats } from "./PokerStats";
 
-export const PokerCardItem = ({ props, onClick }) => {
+export const PokerCardItem = ({ props }) => {
+  const [showCard, setCard] = useState(false);
   var images = [];
-  if (Array.isArray(Object.values(props.sprites))) {
-    images = Object.values(props.sprites);
-  }
+  images = Object.values(props.sprites).filter(e => e !== null);
   return (
-    <PokerCard onClick={onClick}>
-      <img src={images[0]} />
-      <label>{props.name}</label>
+    <PokerCard showCard={showCard}>
+      <PokerCardHeaderStyle>
+        <img
+          onClick={() => setCard(!showCard)}
+          alt="pokemon"
+          src={images[parseInt(Math.random() * images.length + 0)]}
+        />
+        <PokemonName>{props.name}</PokemonName>
+        <label>Weight {props.weight}</label>
+        <label>Experience {props.base_experience}</label>
+      </PokerCardHeaderStyle>
+      {showCard && <PokerStats props={props} />}
     </PokerCard>
   );
 };

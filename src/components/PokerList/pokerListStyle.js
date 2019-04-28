@@ -13,21 +13,29 @@ export const ImgLogoHeader = styled.img.attrs({
 `;
 
 export const PokerCard = styled.div`
-  width: 150px;
-  height: 150px;
+  width: ${props => (props.showCard ? `90%` : "150px")};
+  min-height: 150px;
   margin-bottom: 20px;
   margin-top: 20px;
   border-radius: 20px;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
   &:hover {
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.1);
     cursor: pointer;
   }
+  transition: width 0.5s, height 0.5s;
+  position: ${props => (props.showCard ? `fixed` : "")};
+  z-index: ${props => (props.showCard ? `5` : "")};
+  left: ${props => (props.showCard && '5%')};
+  top: ${props => (props.showCard && '10%')};
+`;
+
+export const PokerCardHeaderStyle = styled.div`
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const ListPokemons = styled.div`
@@ -65,5 +73,8 @@ export const Body = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 50px;
-  margin-bottom: 50px
+  margin-bottom: 50px;
+`;
+export const PokemonName = styled.span`
+  font-family: "Pokemon Hollow";
 `;

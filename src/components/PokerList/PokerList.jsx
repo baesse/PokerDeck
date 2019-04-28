@@ -9,6 +9,7 @@ import {
 } from "./pokerListStyle";
 import PokerCardItem from "./PokerCard/PokerCard";
 import Actions from "../../store/types/index";
+import PokerSearch from '../Search/Search'
 class PokerList extends Component {
   constructor(props) {
     super();
@@ -18,15 +19,15 @@ class PokerList extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <Fragment>
         <Wrapper>
           <ImgLogoHeader />
         </Wrapper>
+        <PokerSearch />
         <ListPokemons>
           {this.props.payload.pokemons.map((k, key) => {
-            return <PokerCardItem onClick={()=>this.props.onRequestShowPokemon(k.url)}  key={key} props={k} />;
+            return <PokerCardItem key={key} props={k} />;
           })}
         </ListPokemons>
         <Body>
@@ -43,7 +44,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onRequestPokemons: (page) => dispatch({ type: Actions.API_POKEMONS_REQUEST,payload:{page}  }),
-  onRequestShowPokemon: (page) => dispatch({ type: Actions.API_POKEMON_SHOW_REQUEST,payload:{page}  }),
 });
 
 export default connect(
