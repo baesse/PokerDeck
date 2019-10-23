@@ -40,7 +40,7 @@ export const PokerCardHeaderStyle = styled.div`
 export const ListPokemons = styled.div`
   display: flex;
   flex-wrap: wrap;
-  align-items: center;s
+  align-items: center;
   padding: 10px;
 `;
 
