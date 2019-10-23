@@ -15,8 +15,7 @@ export const ImgLogoHeader = styled.img.attrs({
 export const PokerCard = styled.div`
   width: ${props => (props.showCard ? `90%` : "150px")};
   min-height: 150px;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin: 20px;
   border-radius: 20px;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
@@ -41,8 +40,7 @@ export const PokerCardHeaderStyle = styled.div`
 export const ListPokemons = styled.div`
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
+  align-items: center;s
   padding: 10px;
 `;
 
